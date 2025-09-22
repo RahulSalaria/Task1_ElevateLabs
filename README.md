@@ -17,7 +17,7 @@ Perform network reconnaissance on local hosts to identify open ports and underst
 6. Assessed potential security risks associated with each open port.
 
 ## Results / Findings
-- Open ports for host `192.168.0.1 and 192.168.0.107` included:
+- Open ports for host `Host-1 and Host-0` included:
 - **21/tcp (FTP)** – Medium risk, file transfer service
 - **445/tcp (SMB)** – High risk, file sharing service
 - **139/tcp (NetBIOS-SSN)** – High risk, may leak internal info
