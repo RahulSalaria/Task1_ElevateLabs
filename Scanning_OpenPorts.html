@@ -42,14 +42,14 @@ WireShark Findings --->>
 
 Open ports -   (ip.addr == Host-1 && tcp.flags.syn==1) 
 port21
-  * Packet(7155	536.865648)	Host-1 → Host-2	TCP	58	63528 → 21 [SYN] Seq=0 Win=1024 Len=0 MSS=1460
-  * Packet(7159	536.867901)	Host-2 → Host-1	TCP	58	21 → 63528 [SYN, ACK] Seq=0 Ack=1 Win=14600 Len=0 MSS=1460
+  * Packet(7155	536.865648)	Host-1 → Host	TCP	58	63528 → 21 [SYN] Seq=0 Win=1024 Len=0 MSS=1460
+  * Packet(7159	536.867901)	Host → Host-1	TCP	58	21 → 63528 [SYN, ACK] Seq=0 Ack=1 Win=14600 Len=0 MSS=1460
 port445  
-  * Packet(7176	536.887435)	Host-1 → Host-2	TCP	58	63528 → 445 [SYN] Seq=0 Win=1024 Len=0 MSS=1460
-  * Packet(7179	536.888887)	Host-2 → Host-1	TCP	58	445 → 63528 [SYN, ACK] Seq=0 Ack=1 Win=14600 Len=0 MSS=1460
+  * Packet(7176	536.887435)	Host-1 → Host	TCP	58	63528 → 445 [SYN] Seq=0 Win=1024 Len=0 MSS=1460
+  * Packet(7179	536.888887)	Host → Host-1	TCP	58	445 → 63528 [SYN, ACK] Seq=0 Ack=1 Win=14600 Len=0 MSS=1460
 port139
-  *Packet(7269	536.960374)	Host-1 → Host-2	TCP	58	63528 → 139 [SYN] Seq=0 Win=1024 Len=0 MSS=1460
-  *Packet(7272	536.962152)	Host-2 → Host-1	TCP	58	139 → 63528 [SYN, ACK] Seq=0 Ack=1 Win=14600 Len=0 MSS=1460
+  *Packet(7269	536.960374)	Host-1 → Host	TCP	58	63528 → 139 [SYN] Seq=0 Win=1024 Len=0 MSS=1460
+  *Packet(7272	536.962152)	Host → Host-1	TCP	58	139 → 63528 [SYN, ACK] Seq=0 Ack=1 Win=14600 Len=0 MSS=1460
 
 
 filter Used --(ip.addr == Host-0 && tcp.port == 1521 && tcp.flags.syn==1)
@@ -86,4 +86,5 @@ Port 8000/tcp – HTTP-alt
 
 
 Note: IP addresses have been anonymized for privacy.
+
 
