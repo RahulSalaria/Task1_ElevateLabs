@@ -52,13 +52,13 @@ port139
   *Packet(7272	536.962152)	Host-2 → Host-1	TCP	58	139 → 63528 [SYN, ACK] Seq=0 Ack=1 Win=14600 Len=0 MSS=1460
 
 
-filter Used --(ip.addr == Host-1 && tcp.port == 1521 && tcp.flags.syn==1)
+filter Used --(ip.addr == Host-0 && tcp.port == 1521 && tcp.flags.syn==1)
 Port 1521 (Oracle): Open (SYN packet captured; SYN/ACK not observed in Wireshark)
   *Packet(8390	537.629272)	Host-1 → Host-2	TCP	58	63528 → 1521 [SYN] Seq=0 Win=1024 Len=0 MSS=1460
   *Packet(10521	542.190828)	Host-1 → Host-2	TCP	58	63528 → 1521 [SYN] Seq=0 Win=1024 Len=0 MSS=1460
 
 
-filter Used --(ip.addr == Host-1 && tcp.port == 8000 && tcp.flags.syn==1)
+filter Used --(ip.addr == Host-0 && tcp.port == 8000 && tcp.flags.syn==1)
 port8000(http-alt) open(syn packet captured; syn/ack not observed in wireshark)
   *Packet(8923	537.880699)	Host-1 → Host-2	TCP	58	63528 → 8000 [SYN] Seq=0 Win=1024 Len=0 MSS=1460
   *Packet(12363	567.266276)	Host-1 → Host-2	TCP	58	63528 → 8000 [SYN] Seq=0 Win=1024 Len=0 MSS=1460
@@ -86,3 +86,4 @@ Port 8000/tcp – HTTP-alt
 
 
 Note: IP addresses have been anonymized for privacy.
+
