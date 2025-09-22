@@ -1,5 +1,4 @@
-Starting Nmap 7.98 ( https://nmap.org ) at 2025-09-22 13:53 +0530
-Nmap scan report for 192.168.0.1
+Nmap scan report for Host-1
 Host is up (0.0016s latency).
 Not shown: 994 closed tcp ports (reset)
 PORT     STATE    SERVICE
@@ -9,27 +8,24 @@ PORT     STATE    SERVICE
 139/tcp  open     netbios-ssn
 445/tcp  open     microsoft-ds
 1900/tcp open     upnp
-MAC Address: C0:C9:E3:C2:FD:4F (TP-Link Technologies)
 
-Nmap scan report for 192.168.0.106
+Nmap scan report for Host-2
 Host is up (0.053s latency).
-All 1000 scanned ports on 192.168.0.106 are in ignored states.
+All 1000 scanned ports on Host-2 are in ignored states.
 Not shown: 1000 filtered tcp ports (no-response)
-MAC Address: BC:03:58:44:5F:7A (Intel Corporate)
 
-Nmap scan report for 192.168.0.109
+Nmap scan report for Host-3
 Host is up (0.17s latency).
-All 1000 scanned ports on 192.168.0.109 are in ignored states.
+All 1000 scanned ports on Host-3 are in ignored states.
 Not shown: 1000 filtered tcp ports (no-response)
-MAC Address: 68:7A:64:CB:1F:A6 (Intel Corporate)
 
-Nmap scan report for 192.168.0.111
+Nmap scan report for Host-4
 Host is up (0.015s latency).
-All 1000 scanned ports on 192.168.0.111 are in ignored states.
+All 1000 scanned ports on Host-4 are in ignored states.
 Not shown: 1000 closed tcp ports (reset)
-MAC Address: 36:05:47:10:4F:C3 (Unknown)
 
-Nmap scan report for host.docker.internal (192.168.0.107)
+
+Nmap scan report for host.docker.internal (Host-0)
 Host is up (0.00071s latency).
 Not shown: 994 closed tcp ports (reset)
 PORT     STATE SERVICE
@@ -44,28 +40,28 @@ Nmap done: 256 IP addresses (5 hosts up) scanned in 170.44 seconds
 
 WireShark Findings --->>
 
-Open ports -   (ip.addr == 192.168.0.1 && tcp.flags.syn==1) 
+Open ports -   (ip.addr == Host-1 && tcp.flags.syn==1) 
 port21
-  * 7155	536.865648	192.168.0.107	192.168.0.1	TCP	58	63528 → 21 [SYN] Seq=0 Win=1024 Len=0 MSS=1460
-  * 7159	536.867901	192.168.0.1	192.168.0.107	TCP	58	21 → 63528 [SYN, ACK] Seq=0 Ack=1 Win=14600 Len=0 MSS=1460
+  * Packet(7155	536.865648)	Host-1 → Host-2	TCP	58	63528 → 21 [SYN] Seq=0 Win=1024 Len=0 MSS=1460
+  * Packet(7159	536.867901)	Host-2 → Host-1	TCP	58	21 → 63528 [SYN, ACK] Seq=0 Ack=1 Win=14600 Len=0 MSS=1460
 port445  
-  * 7176	536.887435	192.168.0.107	192.168.0.1	TCP	58	63528 → 445 [SYN] Seq=0 Win=1024 Len=0 MSS=1460
-  * 7179	536.888887	192.168.0.1	192.168.0.107	TCP	58	445 → 63528 [SYN, ACK] Seq=0 Ack=1 Win=14600 Len=0 MSS=1460
+  * Packet(7176	536.887435)	Host-1 → Host-2	TCP	58	63528 → 445 [SYN] Seq=0 Win=1024 Len=0 MSS=1460
+  * Packet(7179	536.888887)	Host-2 → Host-1	TCP	58	445 → 63528 [SYN, ACK] Seq=0 Ack=1 Win=14600 Len=0 MSS=1460
 port139
-  *7269	536.960374	192.168.0.107	192.168.0.1	TCP	58	63528 → 139 [SYN] Seq=0 Win=1024 Len=0 MSS=1460
-  *7272	536.962152	192.168.0.1	192.168.0.107	TCP	58	139 → 63528 [SYN, ACK] Seq=0 Ack=1 Win=14600 Len=0 MSS=1460
+  *Packet(7269	536.960374)	Host-1 → Host-2	TCP	58	63528 → 139 [SYN] Seq=0 Win=1024 Len=0 MSS=1460
+  *Packet(7272	536.962152)	Host-2 → Host-1	TCP	58	139 → 63528 [SYN, ACK] Seq=0 Ack=1 Win=14600 Len=0 MSS=1460
 
 
-filter Used --(ip.addr == 192.168.0.107 && tcp.port == 1521 && tcp.flags.syn==1)
+filter Used --(ip.addr == Host-1 && tcp.port == 1521 && tcp.flags.syn==1)
 Port 1521 (Oracle): Open (SYN packet captured; SYN/ACK not observed in Wireshark)
-  *8390	537.629272	192.168.0.107	192.168.0.102	TCP	58	63528 → 1521 [SYN] Seq=0 Win=1024 Len=0 MSS=1460
-  *10521	542.190828	192.168.0.107	192.168.0.1	TCP	58	63528 → 1521 [SYN] Seq=0 Win=1024 Len=0 MSS=1460
+  *Packet(8390	537.629272)	Host-1 → Host-2	TCP	58	63528 → 1521 [SYN] Seq=0 Win=1024 Len=0 MSS=1460
+  *Packet(10521	542.190828)	Host-1 → Host-2	TCP	58	63528 → 1521 [SYN] Seq=0 Win=1024 Len=0 MSS=1460
 
 
-filter Used --(ip.addr == 192.168.0.107 && tcp.port == 8000 && tcp.flags.syn==1)
+filter Used --(ip.addr == Host-1 && tcp.port == 8000 && tcp.flags.syn==1)
 port8000(http-alt) open(syn packet captured; syn/ack not observed in wireshark)
-  *8923	537.880699	192.168.0.107	192.168.0.102	TCP	58	63528 → 8000 [SYN] Seq=0 Win=1024 Len=0 MSS=1460
-  *12363	567.266276	192.168.0.107	192.168.0.1	TCP	58	63528 → 8000 [SYN] Seq=0 Win=1024 Len=0 MSS=1460
+  *Packet(8923	537.880699)	Host-1 → Host-2	TCP	58	63528 → 8000 [SYN] Seq=0 Win=1024 Len=0 MSS=1460
+  *Packet(12363	567.266276)	Host-1 → Host-2	TCP	58	63528 → 8000 [SYN] Seq=0 Win=1024 Len=0 MSS=1460
 
 
 Port 21/tcp – FTP
@@ -87,3 +83,4 @@ Port 1521/tcp – Oracle DB
 Port 8000/tcp – HTTP-alt
   Service: Alternative HTTP service
   Risk: Medium, could host vulnerable web applications
+
