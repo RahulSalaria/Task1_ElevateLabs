@@ -28,6 +28,14 @@ Perform network reconnaissance on local hosts to identify open ports and underst
 ## Files Included
 - `Scanning_OpenPorts.html` – open ports, Wireshark evidence(summary), services, and risks
 
+Host-1:
+  - 21/tcp (FTP) – Medium risk
+  - 445/tcp (SMB) – High risk
+  - 139/tcp (NetBIOS-SSN) – High risk
+
+Host-0:
+  - 1521/tcp (Oracle DB listener) – High risk
+  - 8000/tcp (HTTP-alt) – Medium risk
 
 ## Conclusion
 This task demonstrated basic network reconnaissance skills, including scanning local hosts for open ports, analyzing packet captures, identifying services running on the ports, and assessing potential security risks.
